@@ -3,7 +3,7 @@ export const getGifts = () => {
     dispatch({type: 'LOADING_GIFTS'})
     return fetch('/gifts')
     .then(resp => resp.json())
-    .then(gifts => dispatch({type: 'FETCH_GIFTS', payload: gifts))
+    .then(gifts => dispatch({type: 'FETCH_ALL_GIFTS', payload: gifts}))
   }
 }
 

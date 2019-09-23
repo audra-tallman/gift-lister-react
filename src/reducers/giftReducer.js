@@ -1,10 +1,16 @@
-export default (state = [], action ) => {
+export default (state = {gifts:[],
+  loading: false}, action) => {
     switch(action.type) {
       case 'LOADING_GIFTS':
         return{
           ...state,
           loading: true
         }
+        case 'FETCH_ALL_GIFTS':
+          return{
+            gifts: action.payload,
+            loading: false
+          }
       case 'ADD_GIFT':
         return{
           ...state,
