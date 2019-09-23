@@ -30,9 +30,9 @@ class ShoppingListContainer extends Component {
 
   render() {
 
-    const gifts = this.props.gifts.map((gift, i) =>
-      <ul key={i}><li>{gift.description} - {gift.person.name} - {gift.given ? "given" : "not given"}</li>
-      </ul>)
+    // const gifts = this.props.gifts.map((gift, i) =>
+    //   <ul key={i}><li>{gift.description} - {gift.person.name} - {gift.given ? "given" : "not given"}</li>
+    //   </ul>)
     return (
       <div>
         <h1>Gifts on your List:</h1>

@@ -21,10 +21,13 @@ import React from 'react'
 //   toggleGift: PropTypes.func.isRequired
 // }
 
-const GiftList = props =>
+const GiftList = (props) =>
 <ul>
   {props.gifts.map(gift => (
-    <h2 key={gift.id}> - {gift.description} (for {gift.person.name}) </h2>
+    <h2 key={gift.id} onClick= {props.onClick}
+    style={{
+      textDecoration: gift.given ? 'line-through' : 'none'
+    }}> ∆ {gift.description} (for {gift.person.name})</h2>
   ))}
 </ul>
 
