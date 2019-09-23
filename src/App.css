@@ -20,3 +20,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+.Nav-Bar {
+  background-color: turquoise inherit;;
+  text-align: center;
+  display: inline-block;
+  color: white;
+}
