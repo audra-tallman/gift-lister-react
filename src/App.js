@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getPeople } from './actions/people';
+import PersonForm from './containers/PersonForm';
 
 
 class App extends Component {
@@ -16,6 +17,8 @@ class App extends Component {
       <div className="App">
       <h1> People on your list: </h1>
         {this.props.loading ? <h2>Loading... </h2>: people}
+        <hr/>
+        <PersonForm />
       </div>
     );
   }

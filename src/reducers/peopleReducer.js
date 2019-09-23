@@ -11,6 +11,16 @@ export default (state = {people:[],
           people: action.payload,
           loading: false
         }
+      case 'ADD_PERSON':
+        return{
+          ...state,
+          loading: true
+      }
+      case 'PERSON_ADDED':
+        return{
+          people:[...state.people, action.payload],
+          loading: false
+        }
       default:
       return state;
     }
