@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import { toggleGift} from '../actions'
+import { toggleGift} from '../actions/gifts'
 import GiftList from '../components/GiftList'
-import { VisibilityFilters } from '../actions'
+import { VisibilityFilters } from '../actions/gifts'
 
 const getVisibleGifts = (gifts, filter) => {
   switch (filter) {
