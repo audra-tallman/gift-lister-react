@@ -14,29 +14,29 @@ class ShoppingListContainer extends Component {
   }
 
 
-  render() {
-    return(
-      <div>
-        <h1> Gifts on your list: </h1>
-        <ShoppingList gifts={this.props.gifts}/>
-      </div>
-    )}
-  }
+  // render() {
+  //   return(
+  //     <div>
+  //       <h1> Gifts on your list: </h1>
+  //       <ShoppingList gifts={this.props.gifts}/>
+  //     </div>
+  //   )}
+  // }
 
-//   render() {
-//     const gifts = this.props.gifts.map((gift, i) =>
-//       <ul key={i}>{gift.description} - {gift.person.name} - {gift.given ? "given" : "not given"}</ul>)
-//     return (
-//       <div>
-//           <h1>Gifts on your List</h1>
-//             <div className="container">
-//             </div>
-//           <ul>{this.props.loading ? <h2>Loading...</h2> : gifts}</ul>
-//           < CheckList />
-//       </div>
-//     );
-//   }
-// }
+  render() {
+    const gifts = this.props.gifts.map((gift, i) =>
+      <ul key={i}>{gift.description} - {gift.person.name} - {gift.given ? "given" : "not given"}</ul>)
+    return (
+      <div>
+          <h1>Gifts on your List</h1>
+            <div className="container">
+            </div>
+          <ul>{this.props.loading ? <h2>Loading...</h2> : gifts}</ul>
+      </div>
+    );
+  }
+}
+
 const mapStateToProps = (state) => {
   console.log("I am state", state)
   return {
