@@ -1,5 +1,20 @@
 export default (state = [], action ) => {
     switch(action.type) {
+      case 'LOADING_GIFTS':
+        return{
+          ...state,
+          loading: true
+        }
+      case 'ADD_GIFT':
+        return{
+          ...state,
+          loading: true
+      }
+      case 'GIFT_ADDED':
+        return{
+          gifts:[...state.gifts, action.payload],
+          loading: false
+        }
       case 'ADD_GIFT_TO_PERSON':
         console.log("Adding gift")
         const gift = {
