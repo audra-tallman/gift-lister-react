@@ -6,6 +6,6 @@ const PeopleList = props =>
     {props.people.map(person => (
       <h2 key={person.id}><Link to={`/people/${person.name}`}> {person.name} </Link> </h2>
     ))}
-</ul>
+  </ul>
 
 export default PeopleList;

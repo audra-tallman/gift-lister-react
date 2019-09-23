@@ -27,10 +27,6 @@ class PeopleListContainer extends Component {
     )}
   }
 
-  //   {<h1> People on your list: </h1>
-    //     {this.props.loading} ? <h2>Loading... </h2>:
-    //     <PeopleList peopleList={people} />}
-
 const mapStateToProps = (state) => {
   console.log("I am state", state)
   return{
@@ -39,4 +35,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getPeople }) (PeopleListContainer);
+export default connect (mapStateToProps, { getPeople }) (PeopleListContainer);
