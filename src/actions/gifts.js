@@ -7,6 +7,22 @@ export const getGifts = () => {
   }
 }
 
+export const setVisibilityFilter = filter => ({
+  type: 'SET_VISIBILITY_FILTER',
+  filter
+})
+
+export const toggleGiven = id => ({
+  type: 'TOGGLE_GIVEN',
+  id
+})
+
+export const VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_GIVEN: 'SHOW_GIVEN',
+  SHOW_TO_GIVE: 'SHOW_TO_GIVE'
+}
+
 export const addGift= (gift) => {
   return(dispatch) => {
     dispatch({type: 'ADD_GIFT'}, gift)

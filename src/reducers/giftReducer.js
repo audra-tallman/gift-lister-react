@@ -21,6 +21,10 @@ export default (state = {gifts:[],
           gifts:[...state.gifts, action.payload],
           loading: false
         }
+      case 'TOGGLE_GIVEN':
+        return state.map(gift =>
+          gift.id === action.id ? { ...gift, given: !gift.given } : gift
+       )
       case 'ADD_GIFT_TO_PERSON':
         console.log("Adding gift")
         const gift = {
