@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
+import { getPeople } from './actions/people';
 
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getPeople()
+  }
+
   render() {
     const people = this.props.people.map((person, i) =>
-    <ul key={i}> {person.name})</ul>)
+    <ul key={i}> {person.name}</ul>)
     return (
       <div className="App">
       <h1> People on your list: </h1>
@@ -24,4 +29,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps) (App);
+export default connect(mapStateToProps, { getPeople }) (App);
