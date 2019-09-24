@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getPeople } from '../actions/people';
 import PersonForm from './PersonForm';
 import PeopleList from '../components/PeopleList';
-
+import PersonGifts from './PersonGifts'
 
 class PeopleListContainer extends Component {
   constructor() {
@@ -23,6 +23,9 @@ class PeopleListContainer extends Component {
           <hr/>
           <h2> Add a Person to your list...</h2>
           <PersonForm />
+          <hr/>
+          <h3> Selected Person's Gifts: </h3>
+          <PersonGifts />
       </div>
     )}
   }
@@ -30,8 +33,7 @@ class PeopleListContainer extends Component {
 const mapStateToProps = (state) => {
   console.log("I am state", state)
   return{
-    people: state.peopleReducer.people,
-    loading: state.peopleReducer.loading
+    people: state.peopleReducer.people
   }
 }
 

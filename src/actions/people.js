@@ -21,3 +21,31 @@ export const addPerson = (person) => {
     .then(person => dispatch({type: 'PERSON_ADDED', payload: person}))
   }
 }
+
+export const selectPerson = (person) => {
+  console.log("You clicked on", person.name);
+  return{
+    type: "PERSON_SELECTED",
+    payload: person
+  }
+}
+
+export const addGift = (gift, id) => {
+console.log(gift)
+  return(dispatch) =>{
+    dispatch({
+      type: 'ADD_GIFT_TO_PERSON',
+      payload: gift,
+      id
+    })
+    return fetch('/gifts', {
+      method: 'POST',
+      body: JSON.stringify(gift),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(resp => resp.json())
+    .then(gift => dispatch({type: 'GIFT_ADDED', payload: gift}))
+  }
+}
