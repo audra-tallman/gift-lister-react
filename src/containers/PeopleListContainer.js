@@ -24,8 +24,10 @@ class PeopleListContainer extends Component {
           <h2> Add a Person to your list...</h2>
           <PersonForm />
           <hr/>
-          <h3> Selected Person's Gifts: </h3>
-          <PersonGifts />
+          {this.props.personIsSelected && <>
+            <h3> Selected Person's Gifts: </h3>
+            <PersonGifts />
+            </>}
       </div>
     )}
   }
@@ -33,7 +35,8 @@ class PeopleListContainer extends Component {
 const mapStateToProps = (state) => {
   console.log("I am state", state)
   return{
-    people: state.peopleReducer.people
+    people: state.peopleReducer.people,
+    personIsSelected: !!state.selectedPersonReducer
   }
 }
 
