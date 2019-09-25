@@ -1,3 +1,27 @@
+
+# Gift Lister
+
+A React/Redux App for user to keep track of gift ideas for people.
+
+ ## Install Instructions:
+1. Must be used in conjunction with the back-end API found at https://github.com/audra-tallman/gift-lister-api.git
+
+2. Follow instructions in the API README.
+
+3. Fork and clone this repo. Run npm install, then npm start. Navigate to localhost:3000 to view the app in your browser.
+
+ ## Contributor's Guide:
+Bug reports and pull requests are welcome on GitHub at https://github.com/audra-tallman/gift-lister-react.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+ ## License Information:
+This project is licensed under the MIT License
+
+ ## Acknowledgements:
+Thank you to the following people who helped in developing and troubleshooting the code for this program.
+
+- Nancy Noyes
+- Matt McElwee
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

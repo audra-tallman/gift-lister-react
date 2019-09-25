@@ -1,9 +1,18 @@
+export const getPersonGifts = () => {
+  return(dispatch) => {
+    dispatch({type: 'LOADING_GIFTS'})
+    return fetch('/gifts')
+    .then(resp => resp.json())
+    .then(gifts => dispatch({type: 'FETCH_PERSON_GIFTS', payload: gifts}))
+  }
+}
+
 export const getGifts = () => {
   return(dispatch) => {
     dispatch({type: 'LOADING_GIFTS'})
     return fetch('/gifts')
     .then(resp => resp.json())
-    .then(gifts => dispatch({type: 'FETCH_ALL_GIFTS', payload: gifts}))
+    .then(gifts => dispatch({type: 'FETCH_GIFTS', payload: gifts}))
   }
 }
 

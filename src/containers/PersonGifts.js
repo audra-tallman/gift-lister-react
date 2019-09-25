@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import {selectPerson} from '../actions/people';
 import GiftForm from '../containers/GiftForm';
 import { getPeople } from '../actions/people';
-import { getGifts } from '../actions/gifts';
+import { getPersonGifts } from '../actions/gifts';
 import { get } from 'dot-prop';
 
 class PersonGifts extends Component {
 
   componentDidMount() {
     this.props.getPeople();
-    this.props.getGifts();
+    this.props.getPersonGifts();
   }
 
   createGiftList() {
@@ -42,7 +42,7 @@ const gifts = get(state, 'giftReducer.gifts', [])
   }
 }
 
-export default connect (mapStateToProps, { getPeople, getGifts, selectPerson })(PersonGifts);
+export default connect (mapStateToProps, { getPeople, getPersonGifts, selectPerson })(PersonGifts);
 
 //   render() {
 //     return(

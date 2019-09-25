@@ -6,7 +6,7 @@ export default (state = {gifts:[],
           ...state,
           loading: true
         }
-        case 'FETCH_ALL_GIFTS':
+        case 'FETCH_PERSON_GIFTS':
           return{
             gifts: action.payload.map((g) => ({
               description: g.description,
@@ -40,7 +40,10 @@ export default (state = {gifts:[],
         }
         return {gifts:[...state.gifts, gift], loading: state.loading}
       case 'FETCH_GIFTS':
-        return [...action.payload]
+        return{
+          gifts: action.payload,
+          loading:false
+        }
       default:
       return state;
     }
