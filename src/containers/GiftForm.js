@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectPerson } from '../actions/people';
-import { getPeople } from '../actions/people';
+import { selectPerson, getPeople, addGift } from '../actions/people';
 import { getGifts } from '../actions/gifts';
 
 class GiftForm extends Component {
@@ -30,7 +29,7 @@ class GiftForm extends Component {
       description: gift.description,
       person_id: this.props.person.id,
       given: false
-    }, this.props.person.name)
+    }, this.props.person.id)
     this.setState({
       description: '',
       loading: false
@@ -55,42 +54,8 @@ class GiftForm extends Component {
 const mapStateToProps = (state) => {
   console.log("I am PersonGifts state", state)
   return{
-    person: state.selectedPersonReducer ? state.selectedPersonReducer.person.id : [],
+    person: state.selectedPersonReducer ? state.selectedPersonReducer.person : {},
     gifts: state.selectedPersonReducer ? state.selectedPersonReducer.person.gifts : []
   }
 }
-export default connect (mapStateToProps, { getPeople, getGifts, selectPerson })(GiftForm);
-
-
-// export default connect(null, { addGift })(GiftForm);
-
-
-
-
-// import React from 'react'
-// import { connect } from 'react-redux'
-// import { addGift } from '../actions/gifts'
-//
-// const GiftForm = ({ dispatch }) => {
-//   let input
-//
-//   return (
-//     <div>
-//       <form
-//         onSubmit={e => {
-//           e.preventDefault()
-//           if (!input.value.trim()) {
-//             return
-//           }
-//           dispatch(addGift(input.value))
-//           input.value = ''
-//         }}
-//       >
-//         <input ref={node => (input = node)} />
-//         <button type="submit">Add Gift</button>
-//       </form>
-//     </div>
-//   )
-// }
-//
-// export default connect()(GiftForm)
+export default connect (mapStateToProps, { getPeople, getGifts, selectPerson, addGift })(GiftForm);

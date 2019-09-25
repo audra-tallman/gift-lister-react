@@ -8,7 +8,12 @@ export default (state = {gifts:[],
         }
         case 'FETCH_ALL_GIFTS':
           return{
-            gifts: action.payload,
+            gifts: action.payload.map((g) => ({
+              description: g.description,
+              given: g.given,
+              id: g.id,
+              personId: g.person.id
+            })),
             loading: false
           }
       case 'ADD_GIFT':
@@ -26,14 +31,14 @@ export default (state = {gifts:[],
           gift.id === action.id ? { ...gift, given: !gift.given } : gift
        )
       case 'ADD_GIFT_TO_PERSON':
-        console.log("Adding gift")
+        console.log(action.id)
         const gift = {
           description: action.payload.description,
           given: false,
-          id: state.length+1,
+          id: state.gifts.length+1,
           personId: action.id
         }
-        return [...state, gift]
+        return {gifts:[...state.gifts, gift], loading: state.loading}
       case 'FETCH_GIFTS':
         return [...action.payload]
       default:

@@ -4,6 +4,7 @@ import {selectPerson} from '../actions/people';
 import GiftForm from '../containers/GiftForm';
 import { getPeople } from '../actions/people';
 import { getGifts } from '../actions/gifts';
+import { get } from 'dot-prop';
 
 class PersonGifts extends Component {
 
@@ -24,7 +25,6 @@ class PersonGifts extends Component {
     return(
       <div>
       <ul> {this.createGiftList()} </ul>
-      <ul> {this.props.person} </ul>
       <GiftForm personId={this.props.person} />
       </div>
     )
@@ -33,9 +33,12 @@ class PersonGifts extends Component {
 
 const mapStateToProps = (state) => {
   console.log("I am PersonGifts state", state)
+const personId = get(state, 'selectedPersonReducer.person.id', '')
+const gifts = get(state, 'giftReducer.gifts', [])
+  console.log(gifts)
   return{
     person: state.selectedPersonReducer ? state.selectedPersonReducer.person.id : [],
-    gifts: state.selectedPersonReducer ? state.selectedPersonReducer.person.gifts : []
+    gifts: gifts.filter((g) => g.personId===personId)
   }
 }
 
