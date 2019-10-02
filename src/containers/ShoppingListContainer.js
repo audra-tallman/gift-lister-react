@@ -10,6 +10,7 @@ class ShoppingListContainer extends Component {
   }
 
   componentDidMount() {
+    console.log("getting gifts")
     this.props.getGifts();
   }
 
@@ -17,16 +18,19 @@ class ShoppingListContainer extends Component {
     return (
       <div>
         <h1>Gifts on your List:</h1>
-        <GiftList gifts={this.props.gifts}/>
+        {this.props.loading ? <h2> Loading...</h2> : <GiftList gifts= {this.props.gifts} />}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("I am state", state)
+
+  console.log("I am Shopping List state", state)
   return {
-    gifts: state.giftReducer.gifts
+    gifts: state.giftReducer.gifts,
+    loading: state.giftReducer.loading,
+    people: state.peopleReducer.people
   }
 }
 export default connect (mapStateToProps, { getGifts }) (ShoppingListContainer);

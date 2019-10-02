@@ -33,10 +33,11 @@ class PeopleListContainer extends Component {
   }
 
 const mapStateToProps = (state) => {
-  console.log("I am state", state)
+  console.log("I am PeopleList state", state)
   return{
     people: state.peopleReducer.people,
-    personIsSelected: !!state.selectedPersonReducer
+    personIsSelected: !!state.selectedPersonReducer,
+    gifts: state.giftReducer.gifts
   }
 }
 

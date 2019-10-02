@@ -6,16 +6,6 @@ export default (state = {gifts:[],
           ...state,
           loading: true
         }
-        case 'FETCH_PERSON_GIFTS':
-          return{
-            gifts: action.payload.map((g) => ({
-              description: g.description,
-              given: g.given,
-              id: g.id,
-              personId: g.person.id
-            })),
-            loading: false
-          }
       case 'ADD_GIFT':
         return{
           ...state,
@@ -23,6 +13,7 @@ export default (state = {gifts:[],
       }
       case 'GIFT_ADDED':
         return{
+          ...state,
           gifts:[...state.gifts, action.payload],
           loading: false
         }

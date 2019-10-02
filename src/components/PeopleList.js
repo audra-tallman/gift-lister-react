@@ -12,15 +12,8 @@ const PeopleList = props =>
     ))}
   </ul>
 
-  const mapStateToProps = (state) => {
-    console.log("I am state", state)
-    return{
-      people: state.peopleReducer.people
-    }
-  }
-
   function mapDispatchToProps(dispatch){
     return bindActionCreators({selectPerson: selectPerson}, dispatch)
   }
 
-  export default connect(mapStateToProps, mapDispatchToProps)(PeopleList);
+  export default connect(null, mapDispatchToProps)(PeopleList);
