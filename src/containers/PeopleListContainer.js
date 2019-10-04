@@ -25,7 +25,6 @@ class PeopleListContainer extends Component {
           <PersonForm />
           <hr/>
           {this.props.personIsSelected && <>
-            <h3> Selected Person's Gifts: </h3>
             <PersonGifts />
             </>}
       </div>

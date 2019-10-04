@@ -11,7 +11,7 @@ class PersonGifts extends Component {
   createGiftList() {
     return this.props.person.gifts.map((gift) => {
       return (
-        <li key={gift.id}>{gift.description}</li>
+        <h4 key={gift.id}>- {gift.description}</h4>
       );
     });
   }
@@ -19,7 +19,9 @@ class PersonGifts extends Component {
   render() {
     return(
       <div>
+      <h3> Your gift ideas for {this.props.person.name}: </h3>
       <ul> {this.createGiftList()} </ul>
+      <hr/>
       <GiftForm personId={this.props.person} />
       </div>
     )
